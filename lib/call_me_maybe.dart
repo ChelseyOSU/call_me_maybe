@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
+import 'random_call.dart';
 
 class CallMeMaybe extends StatefulWidget {
   const CallMeMaybe({Key? key}) : super(key: key);
@@ -33,10 +34,10 @@ class _CallMeMaybeState extends State<CallMeMaybe> {
                 children: [
                   SizedBox(child: profileImage(), height:200),
                   SizedBox(child: const Text("Student at Oregon State Unversity"), height:300),
-                  SizedBox(child: const Text("Github: "), height: 200)
+                  SizedBox(child: const Text("zengxi@oregonstate.edu"), height: 200)
                 ]),
               Placeholder(),
-              Placeholder(),
+              RandomCall(),
             ],
           ),
         ),
