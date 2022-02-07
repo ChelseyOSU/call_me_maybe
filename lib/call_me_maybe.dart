@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'profile.dart';
-import 'random_call.dart';
+import 'models/profile.dart';
+import 'screens/random_call_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/resume_screen.dart';
+
 
 class CallMeMaybe extends StatefulWidget {
   const CallMeMaybe({Key? key}) : super(key: key);
@@ -14,34 +17,36 @@ class _CallMeMaybeState extends State<CallMeMaybe> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
+      home: MainTabController()
+    );
+  }
+}
+
+class MainTabController extends StatelessWidget {
+  static const tabs = [
+    Tab(icon: Icon(Icons.account_box)),
+    Tab(icon: Icon(Icons.book)),
+    Tab(icon: Icon(Icons.question_answer)),
+  ];
+
+  final screens = [
+    ProfileScreen(),
+    ResumeScreen(),
+    RandomCallScreen()
+  ];
+  
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: tabs.length,
+        initialIndex: 0,
         child: Scaffold(
           appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.account_box)),
-                Tab(icon: Icon(Icons.book)),
-                Tab(icon: Icon(Icons.question_answer)),
-              ],
-            ),
             title: const Text('Call Me Maybe'),
-          ),
-          body: TabBarView(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(child: profileImage(), height:200),
-                  SizedBox(child: const Text("Student at Oregon State Unversity"), height:300),
-                  SizedBox(child: const Text("zengxi@oregonstate.edu"), height: 200)
-                ]),
-              Placeholder(),
-              RandomCall(),
-            ],
-          ),
+            bottom: const TabBar(tabs: tabs)
+            ), 
+          body: TabBarView(children: screens)
         ),
-      ),
     );
   }
 }

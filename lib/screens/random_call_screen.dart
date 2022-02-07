@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'models/random_answer.dart';
+import '../models/random_answer.dart';
 
-class RandomCall extends StatefulWidget {
+class RandomCallScreen extends StatefulWidget {
   @override
-  State<RandomCall> createState() => _RandomCallState();
+  State<RandomCallScreen> createState() => _RandomCallScreenState();
 }
 
-class _RandomCallState extends State<RandomCall> {
+class _RandomCallScreenState extends State<RandomCallScreen> {
   final randomAnswer = RandomAnswer();
 
   Widget build(BuildContext context) {
