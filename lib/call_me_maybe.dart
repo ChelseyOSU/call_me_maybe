@@ -17,6 +17,9 @@ class _CallMeMaybeState extends State<CallMeMaybe> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.indigo
+      ),
       home: MainTabController()
     );
   }

@@ -16,7 +16,9 @@ class ProfileScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
-          child:FractionallySizedBox(
+          flex: 5,
+          child:
+          FractionallySizedBox(
           alignment: Alignment.center,
           widthFactor: 0.8,
           heightFactor: 0.8,
@@ -26,30 +28,62 @@ class ProfileScreen extends StatelessWidget {
           ),
         )),
         Flexible(
+          flex: 1,
           child: FractionallySizedBox(
             alignment: Alignment.center,
             widthFactor: 0.8,
-            heightFactor: 0.8,
+            heightFactor: 0.3,
             child: Padding(
               padding: EdgeInsets.all(padding(context)),
-              child: const Text("Student at Oregon State Unversity")
+              child: const Text("Student at Oregon State Unversity", 
+              textAlign: TextAlign.center,)
             ))
         ),
-        ElevatedButton(
-          onPressed: _lanuchSMS,
-          child: Text("706-201-4495")
+        Flexible(
+          flex: 1,
+          child: ElevatedButton(
+            onPressed: _lanuchSMS,
+            child: Text("706-201-4495")
+          )
         ),
-        Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-            ElevatedButton(
-              onPressed: _launchURL,
-              child: Text(_url)
-            ),
-            Text(_emailAddress)
-           ], 
-        )
-      ]);
+        Flexible(
+          flex: 1,
+          child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child:
+                    FractionallySizedBox(
+                      alignment: Alignment.center,
+                      widthFactor: 0.9,
+                      child: 
+                        ElevatedButton(
+                          onPressed: _launchURL,
+                          child: Text(_url)
+                        )
+                    ),
+                ),
+                Padding(padding: EdgeInsets.all(padding(context))),
+                Flexible(
+                  flex: 1,
+                  child:
+                    FractionallySizedBox(
+                      alignment: Alignment.center,
+                      widthFactor: 0.9,
+                      child: 
+                        ElevatedButton(
+                          onPressed: _launchURL,
+                          child: Text(_emailAddress)
+                        )
+                    ),
+                )
+              ]
+            )
+          )
+      ]
+    );
   }
 
   double padding(BuildContext context) {
