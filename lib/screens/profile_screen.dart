@@ -9,18 +9,36 @@ const String _iosPhoneNumber = '17062014495&body=hello%20there';
 const String _emailAddress='zengxi@oregonstate.edu';
 
 
-class ProfileScreen extends StatelessWidget {  
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(child: profileImage(), height:200),
-        SizedBox(child: const Text("Student at Oregon State Unversity"), height:300),
+        Flexible(
+          child:FractionallySizedBox(
+          alignment: Alignment.center,
+          widthFactor: 0.8,
+          heightFactor: 0.8,
+          child: Padding(
+            padding: EdgeInsets.all(padding(context)),
+            child: profileImage()
+          ),
+        )),
+        Flexible(
+          child: FractionallySizedBox(
+            alignment: Alignment.center,
+            widthFactor: 0.8,
+            heightFactor: 0.8,
+            child: Padding(
+              padding: EdgeInsets.all(padding(context)),
+              child: const Text("Student at Oregon State Unversity")
+            ))
+        ),
         ElevatedButton(
           onPressed: _lanuchSMS,
           child: Text("706-201-4495")
-          ),
+        ),
         Row(
            mainAxisAlignment: MainAxisAlignment.center,
            children: [
@@ -32,6 +50,10 @@ class ProfileScreen extends StatelessWidget {
            ], 
         )
       ]);
+  }
+
+  double padding(BuildContext context) {
+    return MediaQuery.of(context).size.width * 0.01;
   }
 }
 
